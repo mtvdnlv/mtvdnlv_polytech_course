@@ -1,0 +1,32 @@
+"""Сделать пока что не получилось. постараюсь еще доделать.
+Идея была в том, чтобы воспользоваться intersection, но оне используется для строк.
+Примерно понмаю как жто сделать перебором, но пока не успеел.
+ниже вариант как пытался раскрутить intersection.
+Дай Бог смогу до жесткого дедлайна. спаисбоза внимание.
+Также файл в самом пейчарме не работаети не проверяет ответы, кроме того ннет верных файлов в папке пэйчарма..."""
+
+
+
+
+def find_common_participants(line1, line2, delete_symbol=", "):
+    line1_without_delete = line1.split("|")
+    line2_without_delete = line2.split("|")
+
+    line1_with_join = int(delete_symbol.join(line1_without_delete))
+    line2_with_join = int(delete_symbol.join(line2_without_delete))
+
+    print(line1_with_join)
+    print(type(line1_with_join))
+
+
+    intersection_line1 = line1_with_join.intersection(line2_with_join)
+    intersection_line1.sort()
+
+participants_first_group = "Иванов|Петров|Сидоров"
+participants_second_group = "Петров|Сидоров|Смирнов"
+
+find_common_participants(participants_first_group, participants_second_group)
+
+
+# TODO Провеьте работу функции с разделителем отличным от запятой
+sort

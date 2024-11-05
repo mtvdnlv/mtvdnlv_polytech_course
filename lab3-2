@@ -1,32 +1,25 @@
-"""Сделать пока что не получилось. постараюсь еще доделать.
-Идея была в том, чтобы воспользоваться intersection, но оне используется для строк.
-Примерно понмаю как жто сделать перебором, но пока не успеел.
-ниже вариант как пытался раскрутить intersection.
-Дай Бог смогу до жесткого дедлайна. спаисбоза внимание.
-Также файл в самом пейчарме не работаети не проверяет ответы, кроме того ннет верных файлов в папке пэйчарма..."""
+def find_common_participants(list1, list2, separator=","): #создаем функцию, и, как я обусловился, использую разделитель "|".
+    newlist1 = set((list1.split(separator))) #Используем метод split с указанием разделителя, чтобы от строки перейти к списку
+    newlist2 = set((list2.split(separator))) #Также добавляем функцию set, чтобы исключить повторения и
 
+    similar_names = newlist1.intersection(newlist2) #Использую метод, чтобы найти пересечения множеств, созданных выше.
 
+    return similar_names
 
-
-def find_common_participants(line1, line2, delete_symbol=", "):
-    line1_without_delete = line1.split("|")
-    line2_without_delete = line2.split("|")
-
-    line1_with_join = int(delete_symbol.join(line1_without_delete))
-    line2_with_join = int(delete_symbol.join(line2_without_delete))
-
-    print(line1_with_join)
-    print(type(line1_with_join))
-
-
-    intersection_line1 = line1_with_join.intersection(line2_with_join)
-    intersection_line1.sort()
 
 participants_first_group = "Иванов|Петров|Сидоров"
 participants_second_group = "Петров|Сидоров|Смирнов"
 
-find_common_participants(participants_first_group, participants_second_group)
+similar_names = find_common_participants(participants_first_group, participants_second_group)
+
+print(f'Общие участники в списках: {similar_names}')
 
 
-# TODO Провеьте работу функции с разделителем отличным от запятой
-sort
+'''Если я правильно понимаю, то в строках с данными участников в виде разделителя 
+предполагается ",", т.к по умолчанию в функцию мы вносим именно запятую, чтобы потом 
+с помощью метода split(",") разделить строку и получить уже подстроки с именами, 
+ чтобы потом уже перебрать их и сравнить. Если же действительно надо работать с 
+ таким разделителем, то тогда сначала мы должны прибегнуть к использованию разделителя "|", 
+  чтобы потом уже каким то образом прийти к разделителю ",". Надеюсь я прав))
+  Я оставлю знак "|" в задании и выполню лабораторную с ним.'''
+
